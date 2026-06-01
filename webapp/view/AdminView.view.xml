@@ -1,22 +1,107 @@
 <mvc:View
     controllerName="basicorg.controller.AdminView"
     xmlns:mvc="sap.ui.core.mvc"
-    xmlns="sap.m">
+    xmlns="sap.m"
+    xmlns:form="sap.ui.layout.form"
+    xmlns:core="sap.ui.core">
 
-    <Page title="Admin Site">
+    <Page title="Admin Center">
 
         <content>
 
-            <VBox class="sapUiMediumMargin">
+            <HBox width="100%">
 
-                <Title text="Admin Center" />
+                <!-- LEFT PANEL -->
 
-                <Text text="Admin Site Working" />
+                <VBox width="65%" class="sapUiMediumMargin">
 
-            </VBox>
+                    <Toolbar>
+
+                        <Title text="Employees"/>
+
+                        <ToolbarSpacer/>
+
+                        <Button
+                            text="Add"
+                            type="Emphasized"
+                            press=".onAddEmployee"/>
+
+                        <Button
+                            text="Delete"
+                            type="Reject"
+                            press=".onDeleteEmployee"/>
+
+                    </Toolbar>
+
+                    <List
+                        id="employeeList"
+                        items="{admin>/employees}"
+                        selectionChange=".onEmployeeSelect">
+
+                        <StandardListItem
+                            title="{admin>name}"
+                            description="{admin>title}"
+                            type="Active"/>
+
+                    </List>
+
+                </VBox>
+
+                <!-- RIGHT PANEL -->
+
+                <VBox
+                    width="35%"
+                    class="sapUiMediumMargin">
+
+                    <Title text="Employee Details"/>
+
+                    <form:SimpleForm
+                        editable="true">
+
+                        <Label text="Name"/>
+                        <Input value="{admin>/selectedEmployee/name}"/>
+
+                        <Label text="Position"/>
+                        <Input value="{admin>/selectedEmployee/title}"/>
+
+                        <Label text="Department"/>
+                        <Input value="{admin>/selectedEmployee/department}"/>
+
+                        <Label text="Email"/>
+                        <Input value="{admin>/selectedEmployee/email}"/>
+
+                        <Label text="Phone"/>
+                        <Input value="{admin>/selectedEmployee/phone}"/>
+
+                        <Label text="Reports To"/>
+
+                        <ComboBox
+                            selectedKey="{admin>/selectedEmployee/managerId}"
+                            items="{admin>/employees}">
+
+                            <core:Item
+                                key="{admin>id}"
+                                text="{admin>name}"/>
+
+                        </ComboBox>
+
+                    </form:SimpleForm>
+
+                    <Button
+                        text="Save Changes"
+                        type="Emphasized"
+                        press=".onSaveEmployee"/>
+
+                </VBox>
+
+            </HBox>
 
         </content>
 
     </Page>
 
 </mvc:View>
+
+
+
+

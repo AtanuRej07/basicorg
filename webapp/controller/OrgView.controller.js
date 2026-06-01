@@ -1,3 +1,4 @@
+
 sap.ui.define([
     "sap/ui/core/mvc/Controller",
     "sap/ui/model/json/JSONModel"
@@ -8,13 +9,48 @@ sap.ui.define([
 
         onInit: function () {
 
-            var oModel = new JSONModel();
+            var oEmployeeModel = new JSONModel();
 
-            oModel.loadData(
+            oEmployeeModel.loadData(
                 sap.ui.require.toUrl("basicorg/model/orgData.json")
             );
 
-            this.getView().setModel(oModel);
+            oEmployeeModel.attachRequestCompleted(function () {
+
+                var aEmployees =
+                    oEmployeeModel.getProperty("/employees");
+
+                var aNodes = [];
+                var aLines = [];
+
+                aEmployees.forEach(function (emp) {
+
+                    aNodes.push({
+                        id: emp.id,
+                        name: emp.name,
+                        designation: emp.title,
+                        department: emp.department
+                    });
+
+                    if (emp.managerId) {
+
+                        aLines.push({
+                            from: emp.managerId,
+                            to: emp.id
+                        });
+
+                    }
+
+                });
+
+                var oGraphModel = new JSONModel({
+                    nodes: aNodes,
+                    lines: aLines
+                });
+
+                this.getView().setModel(oGraphModel);
+
+            }.bind(this));
 
         }
 

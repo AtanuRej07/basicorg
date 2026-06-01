@@ -1,122 +1,104 @@
 {
-  "nodes": [
+  "employees": [
     {
       "id": "1",
       "name": "CIO Sir",
-      "designation": "Chief Executive Officer",
-      "department": "Corp-IT"
-      
+      "title": "Chief Executive Officer",
+      "managerId": "",
+      "department": "Corp-IT",
+      "email": "",
+      "phone": "",
+      "active": true
     },
-
     {
       "id": "2",
       "name": "Ritu Mam",
-      "designation": "Chief Operating Officer",
-      "department": "Corp-IT"
-      
+      "title": "Chief Operating Officer",
+      "managerId": "1",
+      "department": "Corp-IT",
+      "email": "",
+      "phone": "",
+      "active": true
     },
-
     {
       "id": "3",
       "name": "Susant Sir",
-      "designation": "Chief Financial Officer",
-      "department": "Corp-IT"
+      "title": "Chief Financial Officer",
+      "managerId": "1",
+      "department": "Corp-IT",
+      "email": "",
+      "phone": "",
+      "active": true
     },
-
     {
       "id": "4",
       "name": "Daniel Wilson",
-      "designation": "Chief Technology Officer",
-      "department": "Corp-IT"
+      "title": "Chief Technology Officer",
+      "managerId": "1",
+      "department": "Corp-IT",
+      "email": "",
+      "phone": "",
+      "active": true
     },
-
     {
       "id": "5",
-      "name": "Olivia Martinez",
-      "designation": "Operations Manager",
-      "department": "Corp-IT"
+      "name": "Ramji Sir",
+      "title": "Operations Manager",
+      "managerId": "2",
+      "department": "Corp-IT",
+      "email": "",
+      "phone": "",
+      "active": true
     },
-
     {
       "id": "6",
-      "name": "James Taylor",
-      "designation": "Supply Chain Manager",
-      "department": "Corp-IT"
+      "name": "Sanskriti Mam",
+      "title": "Supply Chain Manager",
+      "managerId": "2",
+      "department": "Corp-IT",
+      "email": "",
+      "phone": "",
+      "active": true
     },
-
     {
       "id": "7",
-      "name": "Liam Anderson",
-      "designation": "Quality Manager",
-      "department": "Corp-IT"
+      "name": "Santanu Sir",
+      "title": "Quality Manager",
+      "managerId": "2",
+      "department": "Corp-IT",
+      "email": "",
+      "phone": "",
+      "active": true
     },
-
     {
       "id": "8",
       "name": "Bijay Sir",
-      "designation": "Finance Manager",
-      "department": "Corp-IT"
+      "title": "Finance Manager",
+      "managerId": "3",
+      "department": "Corp-IT",
+      "email": "",
+      "phone": "",
+      "active": true
     },
-
     {
       "id": "9",
       "name": "Shibal Sir",
-      "designation": "Accounting Manager",
-      "department": "Corp-IT"
+      "title": "Accounting Manager",
+      "managerId": "3",
+      "department": "Corp-IT",
+      "email": "",
+      "phone": "",
+      "active": true
     },
-
     {
       "id": "10",
       "name": "Mia Harris",
-      "designation": "Engineering Manager",
-      "department": "Corp-IT"
-    }
-  ],
-
-  "lines": [
-    {
-      "from": "1",
-      "to": "2"
-    },
-
-    {
-      "from": "1",
-      "to": "3"
-    },
-
-    {
-      "from": "1",
-      "to": "4"
-    },
-
-    {
-      "from": "2",
-      "to": "5"
-    },
-
-    {
-      "from": "2",
-      "to": "6"
-    },
-
-    {
-      "from": "2",
-      "to": "7"
-    },
-
-    {
-      "from": "3",
-      "to": "8"
-    },
-
-    {
-      "from": "3",
-      "to": "9"
-    },
-
-    {
-      "from": "4",
-      "to": "10"
+      "title": "Engineering Manager",
+      "managerId": "4",
+      "department": "Corp-IT",
+      "email": "",
+      "phone": "",
+      "active": true
     }
   ]
 }
