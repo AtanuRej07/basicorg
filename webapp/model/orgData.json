@@ -1,0 +1,122 @@
+{
+  "nodes": [
+    {
+      "id": "1",
+      "name": "CIO Sir",
+      "designation": "Chief Executive Officer",
+      "department": "Corp-IT"
+      
+    },
+
+    {
+      "id": "2",
+      "name": "Ritu Mam",
+      "designation": "Chief Operating Officer",
+      "department": "Corp-IT"
+      
+    },
+
+    {
+      "id": "3",
+      "name": "Susant Sir",
+      "designation": "Chief Financial Officer",
+      "department": "Corp-IT"
+    },
+
+    {
+      "id": "4",
+      "name": "Daniel Wilson",
+      "designation": "Chief Technology Officer",
+      "department": "Corp-IT"
+    },
+
+    {
+      "id": "5",
+      "name": "Olivia Martinez",
+      "designation": "Operations Manager",
+      "department": "Corp-IT"
+    },
+
+    {
+      "id": "6",
+      "name": "James Taylor",
+      "designation": "Supply Chain Manager",
+      "department": "Corp-IT"
+    },
+
+    {
+      "id": "7",
+      "name": "Liam Anderson",
+      "designation": "Quality Manager",
+      "department": "Corp-IT"
+    },
+
+    {
+      "id": "8",
+      "name": "Bijay Sir",
+      "designation": "Finance Manager",
+      "department": "Corp-IT"
+    },
+
+    {
+      "id": "9",
+      "name": "Shibal Sir",
+      "designation": "Accounting Manager",
+      "department": "Corp-IT"
+    },
+
+    {
+      "id": "10",
+      "name": "Mia Harris",
+      "designation": "Engineering Manager",
+      "department": "Corp-IT"
+    }
+  ],
+
+  "lines": [
+    {
+      "from": "1",
+      "to": "2"
+    },
+
+    {
+      "from": "1",
+      "to": "3"
+    },
+
+    {
+      "from": "1",
+      "to": "4"
+    },
+
+    {
+      "from": "2",
+      "to": "5"
+    },
+
+    {
+      "from": "2",
+      "to": "6"
+    },
+
+    {
+      "from": "2",
+      "to": "7"
+    },
+
+    {
+      "from": "3",
+      "to": "8"
+    },
+
+    {
+      "from": "3",
+      "to": "9"
+    },
+
+    {
+      "from": "4",
+      "to": "10"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+<mvc:View
+    controllerName="basicorg.controller.AdminView"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+
+    <Page title="Admin Site">
+
+        <content>
+
+            <VBox class="sapUiMediumMargin">
+
+                <Title text="Admin Center" />
+
+                <Text text="Admin Site Working" />
+
+            </VBox>
+
+        </content>
+
+    </Page>
+
+</mvc:View>

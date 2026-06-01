@@ -1,0 +1,53 @@
+<mvc:View
+    controllerName="basicorg.controller.App"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:tnt="sap.tnt">
+
+    <tnt:ToolPage id="toolPage">
+
+        <tnt:sideContent>
+
+            <tnt:SideNavigation>
+
+                <tnt:NavigationList>
+
+                    <tnt:NavigationListItem
+                        text="User Site"
+                        icon="sap-icon://home"
+                        select=".onUserSitePress" />
+
+                    <tnt:NavigationListItem
+                        text="Admin Site"
+                        icon="sap-icon://manager"
+                        select=".onAdminSitePress" />
+
+                </tnt:NavigationList>
+
+            </tnt:SideNavigation>
+
+        </tnt:sideContent>
+
+        <tnt:mainContents>
+
+            <NavContainer id="mainContainer">
+
+                <pages>
+
+                    <mvc:XMLView
+                        id="orgPage"
+                        viewName="basicorg.view.OrgView" />
+
+                    <mvc:XMLView
+                        id="adminPage"
+                        viewName="basicorg.view.AdminView" />
+
+                </pages>
+
+            </NavContainer>
+
+        </tnt:mainContents>
+
+    </tnt:ToolPage>
+
+</mvc:View>

@@ -1,0 +1,92 @@
+<mvc:View
+    controllerName="basicorg.controller.OrgView"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:ng="sap.suite.ui.commons.networkgraph"
+    xmlns:layout="sap.suite.ui.commons.networkgraph.layout"
+    height="100%">
+
+    <Page title="Organization Hierarchy">
+
+        <content>
+
+            <VBox width="100%">
+
+                <Toolbar>
+
+                    <Title text="Organization Hierarchy" />
+
+                    <ToolbarSpacer />
+
+                    <SearchField
+                        width="250px"
+                        placeholder="Search Employee" />
+
+                </Toolbar>
+
+                <ng:Graph
+                    id="graph"
+                    width="100%"
+                    height="750px"
+                    orientation="TopBottom"
+                    enableWheelZoom="true"
+                    layout="Layered"
+                    nodes="{/nodes}"
+                    lines="{/lines}">
+
+                    <ng:layoutAlgorithm>
+
+                        <layout:LayeredLayout
+                            mergeEdges="true"
+                            nodeSpacing="50" />
+
+                    </ng:layoutAlgorithm>
+
+                    <ng:nodes>
+
+                        <ng:Node
+                            key="{id}"
+                            title="{name}"
+                            description="{designation}"
+                            width="260"
+                            shape="Box"
+                            collapsed="false">
+
+                            <ng:attributes>
+
+                                <ng:ElementAttribute
+                                    label="Department"
+                                    value="{department}" />
+
+                            </ng:attributes>
+
+                            <ng:image>
+
+                                <ng:NodeImage
+                                    src="{image}"
+                                    width="70"
+                                    height="70" />
+
+                            </ng:image>
+
+                        </ng:Node>
+
+                    </ng:nodes>
+
+                    <ng:lines>
+
+                        <ng:Line
+                            from="{from}"
+                            to="{to}" />
+
+                    </ng:lines>
+
+                </ng:Graph>
+
+            </VBox>
+
+        </content>
+
+    </Page>
+
+</mvc:View>
