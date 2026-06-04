@@ -1,5 +1,4 @@
-<mvc:View
-    controllerName="basicorg.controller.AdminView"
+<mvc:View controllerName="basicorg.controller.AdminView"
     xmlns:mvc="sap.ui.core.mvc"
     xmlns="sap.m"
     xmlns:form="sap.ui.layout.form"
@@ -21,27 +20,17 @@
 
                         <ToolbarSpacer/>
 
-                        <Button
-                            text="Add"
-                            type="Emphasized"
-                            press=".onAddEmployee"/>
+                        <Button text="Add Employee" icon="sap-icon://add" type="Emphasized" press=".onOpenAddDialog"/>
 
-                        <Button
-                            text="Delete"
-                            type="Reject"
-                            press=".onDeleteEmployee"/>
+                        <Button text="Edit Employee" icon="sap-icon://edit" press=".onOpenEditDialog"/>
+
+                        <Button text="Delete Employee" icon="sap-icon://delete" type="Reject" press=".onDeleteEmployee"/>
 
                     </Toolbar>
 
-                    <List
-                        id="employeeList"
-                        items="{admin>/employees}"
-                        selectionChange=".onEmployeeSelect">
+                    <List id="employeeList" items="{admin>/employees}" selectionChange=".onEmployeeSelect">
 
-                        <StandardListItem
-                            title="{admin>name}"
-                            description="{admin>title}"
-                            type="Active"/>
+                        <StandardListItem title="{admin>name}" description="{admin>title}" type="Active"/>
 
                     </List>
 
@@ -49,14 +38,11 @@
 
                 <!-- RIGHT PANEL -->
 
-                <VBox
-                    width="35%"
-                    class="sapUiMediumMargin">
+                <VBox width="35%" class="sapUiMediumMargin">
 
                     <Title text="Employee Details"/>
 
-                    <form:SimpleForm
-                        editable="true">
+                    <form:SimpleForm editable="true">
 
                         <Label text="Name"/>
                         <Input value="{admin>/selectedEmployee/name}"/>
@@ -75,22 +61,15 @@
 
                         <Label text="Reports To"/>
 
-                        <ComboBox
-                            selectedKey="{admin>/selectedEmployee/managerId}"
-                            items="{admin>/employees}">
+                        <ComboBox selectedKey="{admin>/selectedEmployee/managerId}" items="{admin>/employees}">
 
-                            <core:Item
-                                key="{admin>id}"
-                                text="{admin>name}"/>
+                            <core:Item key="{admin>id}" text="{admin>name}"/>
 
                         </ComboBox>
 
                     </form:SimpleForm>
 
-                    <Button
-                        text="Save Changes"
-                        type="Emphasized"
-                        press=".onSaveEmployee"/>
+                    <Button text="Save Changes" type="Emphasized" press=".onSaveEmployee"/>
 
                 </VBox>
 

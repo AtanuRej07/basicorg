@@ -1,59 +1,74 @@
-
 sap.ui.define([
     "sap/ui/core/mvc/Controller",
-    "sap/ui/model/json/JSONModel"
-], function (Controller, JSONModel) {
+    "sap/ui/model/json/JSONModel",
+    "basicorg/util/GraphBuilder"
+], function (
+    Controller,
+    JSONModel,
+    GraphBuilder
+) {
+
     "use strict";
 
-    return Controller.extend("basicorg.controller.OrgView", {
+    return Controller.extend(
+        "basicorg.controller.OrgView",
+        {
 
-        onInit: function () {
+            onInit: function () {
 
-            var oEmployeeModel = new JSONModel();
+                var oModel =
+                    this.getOwnerComponent()
+                        .getModel("org");
 
-            oEmployeeModel.loadData(
-                sap.ui.require.toUrl("basicorg/model/orgData.json")
-            );
+                if (
+                    oModel.getProperty("/employees")
+                ) {
 
-            oEmployeeModel.attachRequestCompleted(function () {
+                    this._buildGraph();
+
+                } else {
+
+                    oModel.attachRequestCompleted(
+                        this._buildGraph.bind(this)
+                    );
+
+                }
+
+            },
+
+            _buildGraph: function () {
+
+                var oModel =
+                    this.getOwnerComponent()
+                        .getModel("org");
 
                 var aEmployees =
-                    oEmployeeModel.getProperty("/employees");
+                    oModel.getProperty(
+                        "/employees"
+                    );
 
-                var aNodes = [];
-                var aLines = [];
+                if (!aEmployees) {
+                    return;
+                }
 
-                aEmployees.forEach(function (emp) {
+                var oGraphData =
+                    GraphBuilder.build(
+                        aEmployees
+                    );
 
-                    aNodes.push({
-                        id: emp.id,
-                        name: emp.name,
-                        designation: emp.title,
-                        department: emp.department
-                    });
+                var oGraphModel =
+                    new JSONModel(
+                        oGraphData
+                    );
 
-                    if (emp.managerId) {
+                this.getView()
+                    .setModel(
+                        oGraphModel
+                    );
 
-                        aLines.push({
-                            from: emp.managerId,
-                            to: emp.id
-                        });
-
-                    }
-
-                });
-
-                var oGraphModel = new JSONModel({
-                    nodes: aNodes,
-                    lines: aLines
-                });
-
-                this.getView().setModel(oGraphModel);
-
-            }.bind(this));
+            }
 
         }
-
-    });
+    );
 
 });

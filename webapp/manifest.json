@@ -1,18 +1,14 @@
 {
   "_version": "1.84.0",
-
   "sap.app": {
     "id": "basicorg",
     "type": "application",
     "i18n": "i18n/i18n.properties",
-
     "applicationVersion": {
       "version": "0.0.1"
     },
-
     "title": "{{appTitle}}",
     "description": "{{appDescription}}",
-
     "dataSources": {
       "mainService": {
         "uri": "/Northwind/Northwind.svc/",
@@ -24,29 +20,22 @@
       }
     }
   },
-
   "sap.ui": {
     "technology": "UI5",
-
     "deviceTypes": {
       "desktop": true,
       "tablet": true,
       "phone": true
     }
   },
-
   "sap.ui5": {
-
     "rootView": {
       "viewName": "basicorg.view.App",
       "type": "XML",
       "id": "app"
     },
-
     "dependencies": {
-
       "minUI5Version": "1.148.0",
-
       "libs": {
         "sap.m": {},
         "sap.ui.core": {},
@@ -54,25 +43,23 @@
         "sap.tnt": {}
       }
     },
-
     "models": {
-
       "i18n": {
         "type": "sap.ui.model.resource.ResourceModel",
-
         "settings": {
           "bundleName": "basicorg.i18n.i18n"
         }
       },
-
+      "org": {
+        "type": "sap.ui.model.json.JSONModel",
+        "uri": "model/orgData.json"
+      },
       "": {
         "dataSource": "mainService",
         "preload": true
       }
     },
-
     "resources": {
-
       "css": [
         {
           "uri": "css/style.css"

@@ -30,7 +30,7 @@
                     height="750px"
                     orientation="TopBottom"
                     enableWheelZoom="true"
-                    layout="Layered"
+                    
                     nodes="{/nodes}"
                     lines="{/lines}">
 
